@@ -81,7 +81,7 @@ public class StrikeManager {
         ResultSet rs = null;
 
         try {
-            String sql = String.format("SELECT `time` FROM `%s` WHERE `ipaddress` = ? AND `playername` = ?",
+            String sql = String.format("SELECT `time` FROM `%s` WHERE `ipaddress` = ? AND `playername` = ? ORDER BY `time` DESC",
                     plugin.getDatabaseController().getTable(Table.LOCKOUT));
             ps = conn.prepareStatement(sql);
             ps.setString(1, ipAddress);
