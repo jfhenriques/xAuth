@@ -657,7 +657,7 @@ public class PlayerManager {
         PreparedStatement ps = null;
 
         try {
-            String sql = String.format("INSERT INTO `%s` VALUES (?, ?, ?)",
+            String sql = String.format("INSERT INTO `%s` (`accountid`, `ipaddress`, `logintime`) VALUES (?, ?, ?)",
                     plugin.getDatabaseController().getTable(Table.SESSION));
             ps = conn.prepareStatement(sql);
             ps.setInt(1, accountId);
