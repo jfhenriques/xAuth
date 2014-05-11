@@ -120,13 +120,17 @@ public class DatabaseController {
     }
 
     public void close(Connection conn) {
-        if (conn != null) {
-            try {
-                conn.setAutoCommit(true);
-                connPool.returnConn(conn);
-            } catch (Exception e) {
-                xAuthLog.warning("Failed to return connection to pool!", e);
+        try {
+            if (conn != null && !conn.isClosed()) {
+                try {
+                    conn.setAutoCommit(true);
+                    connPool.returnConn(conn);
+                } catch (Exception e) {
+                    xAuthLog.warning("Failed to return connection to pool!", e);
+                }
             }
+        } catch (Exception e) {
+            return;
         }
     }
 

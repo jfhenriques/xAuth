@@ -331,12 +331,14 @@ public class PlayerManager {
         if (getPlayer(userName).isPremium())
             return true;
 
-        HTTPRequest httpRequest = new HTTPRequest(String.format("https://minecraft.net/haspaid.jsp?user=%s", userName), 500, 500);
-
-        if(httpRequest.getStatus() != 200)
-            return false;
-
-        return httpRequest.getContent().equals("true");
+        return false;
+//
+//        HTTPRequest httpRequest = new HTTPRequest(String.format("https://minecraft.net/haspaid.jsp?user=%s", userName), 500, 500);
+//
+//        if(httpRequest.getStatus() != 200)
+//            return false;
+//
+//        return httpRequest.getContent().equals("true");
     }
 
     public void sendNotice(final xAuthPlayer player) {
