@@ -406,6 +406,15 @@ public class xAuth extends JavaPlugin {
 
         return false;
     }
+    
+    
+    
+    
+    public int hasVersionFix()
+    {
+    	return 1;
+    }
+    
 
     /** Disabled
     private void lol() {
