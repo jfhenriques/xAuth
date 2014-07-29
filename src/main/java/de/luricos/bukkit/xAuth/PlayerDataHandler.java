@@ -186,6 +186,10 @@ public class PlayerDataHandler {
     }
 
     private ItemStack[] buildItemStack(String str) {
+    	
+    	if( str == null )
+    		return null;
+    	
         ItemStack[] items = null;
         String[] itemSplit = str.split(";");
         String[] itemid = itemSplit[0].split(",");
