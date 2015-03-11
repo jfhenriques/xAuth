@@ -17,29 +17,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package de.luricos.bukkit.xAuth.event.system;
+package de.luricos.bukkit.xAuth.event.player;
 
 import de.luricos.bukkit.xAuth.event.xAuthEvent;
 import de.luricos.bukkit.xAuth.event.xAuthEventProperties;
+import de.luricos.bukkit.xAuth.xAuthPlayer;
 import org.bukkit.event.HandlerList;
 
 /**
  * @author lycano
  */
-public class xAuthSystemEvent extends xAuthEvent {
+public class xAuthPlayerShootBowEvent extends xAuthEvent {
 
     private static final HandlerList handlers = new HandlerList();
 
-    public xAuthSystemEvent(xAuthEventProperties properties) {
+    public xAuthPlayerShootBowEvent(xAuthEventProperties properties) {
         super(properties);
     }
 
     public Action getAction() {
-        return ((Action) this.getProperty("action"));
+        return (Action) this.getProperty("action");
     }
 
-    public String getBackendName() {
-        return (String) this.getProperty("backendname");
+    public xAuthPlayer.Status getStatus() {
+        return (xAuthPlayer.Status) this.getProperty("status");
     }
 
     @Override
@@ -52,6 +53,6 @@ public class xAuthSystemEvent extends xAuthEvent {
     }
 
     public enum Action {
-        PERMISSION_BACKEND_CHANGED, PERMISSION_BACKEND_ENDED, PERMISSION_BACKEND_INITIALIZED, PERMISSION_BACKEND_RELOADED, PERMISSION_BACKEND_RELOADING, PERMISSION_BACKEND_LOADING, PERMISSION_BACKEND_READY
+        SHOOT_BOW_DENIED
     }
 }
